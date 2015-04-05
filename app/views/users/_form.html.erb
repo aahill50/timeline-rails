@@ -6,23 +6,23 @@
 <% end %>
 	<%= render 'shared/form_auth' %>
 	<div class="form_group">
-		<label for="user_email">E-mail:</label>
-		<input type="text" id="user_email" name="user[email]" placeholder="E-mail" value="<%= @user.email %>">
+		<label for="user_email" class="required">E-mail:</label>
+		<input type="text" id="user_email" class="required" name="user[email]" placeholder="E-mail" value="<%= @user.email %>">
 	</div>
 	
 	<div class="form_group">
-		<label for="user_username">Username:</label>
-		<input type="text" id="user_username" name="user[username]" placeholder="Username" value="<%= @user.username %>">
+		<label for="user_username" class="required">Username:</label>
+		<input type="text" id="user_username" class="required" name="user[username]" placeholder="Username" value="<%= @user.username %>">
 	</div>
 	
 	<div class="form_group">
-		<label for="user_password">Password:</label>
-		<input type="password" id="user_password" name="user[password]" placeholder="Password">
+		<label for="user_password" class="required">Password:</label>
+		<input type="password" id="user_password" class="required" name="user[password]" placeholder="Password">
 	</div>
 	
 	<div class="form_group">
-		<label for="user_password_confirmation">Password Confirmation:</label>
-		<input type="password" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Re-enter Password">
+		<label for="user_password_confirmation" class="required">Password Confirmation:</label>
+		<input type="password" id="user_password_confirmation" class="required" name="user[password_confirmation]" placeholder="Re-enter Password">
 	</div>
 		
 	<% if form_type == "new" %>

@@ -1,4 +1,5 @@
 <nav>
+	<%=  "Signed in as #{current_user.username}" if current_user %>
 	<ul>
 		<% unless current_user %>
 			<li>
@@ -10,7 +11,13 @@
 		<% end %>
 		<% if current_user %>
 			<li>
+				<a href="<%= events_url %>">My Timeline</a>
+			</li>
+			<li>
 				<a href="<%= users_url %>">All Users</a>
+			</li>
+			<li>
+				<a href="<%= new_user_event_url(current_user) %>">Create an Event</a>
 			</li>
 			<li>
 				<a href="<%= edit_user_url(current_user) %>">Edit Profile</a>

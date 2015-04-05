@@ -1,0 +1,14 @@
+Name - <%= @event.name %>            <br>
+Description - <%= @event.description %>     <br>
+Location - <%= @event.location %>        <br>
+Category - <%= @event.category %>        <br>
+Labels - <%= @event.labels %>          <br>
+Date - <%= @event.format_date %>    <br>
+User - <%= @event.user.username %>         <br>
+
+<a href="<%= edit_event_url(@event) %>">Edit this Event</a>
+<form action="<%= event_url(@event) %>" method="POST">
+	<input type="hidden" name="_method" value="DELETE">
+	<%= render 'shared/form_auth' %>
+	<button>Delete this event</button>
+</form>

@@ -1,0 +1,11 @@
+<% @events.each do |event| %>
+	<div class="event container">
+		<div class="event name">
+			<%= event.name %>
+			<a href="<%= edit_event_url(event)%>">Edit Details</a>
+		</div>
+		<div class="event description">
+			<%= event.description %>
+		</div>
+	</div>
+<% end %>

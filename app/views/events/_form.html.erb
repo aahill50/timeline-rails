@@ -1,0 +1,50 @@
+<% if form_type == "new" %>
+	<form action="<%= user_events_url(current_user) %>" method="POST">
+<% else %>
+	<form action="<%= event_url(@event) %>" method="POST">
+		<input type="hidden" name="_method" value="PATCH">
+<% end %>
+	<%= render 'shared/form_auth' %>
+	<div class="form group">
+		<label for="event_name" class="required">Event Name</label>
+		<input type="text" id="event_name" class="required" name="event[name]" 
+			placeholder="Event Name" value="<%= @event.name %>">
+	</div>
+	
+	<div class="form group">
+		<label for="event_description">Description</label>
+		<textarea id="event_description" name="event[description]" 
+			placeholder="Description"><%= @event.description %></textarea>
+	</div>
+	
+	<div class="form group">
+		<label for="event_location">Location</label>
+		<input type="text" id="event_location" name="event[location]" 
+			placeholder="Location" value="<%= @event.location %>">
+	</div>
+	
+	<div class="form group">
+		<label for="event_category">Category</label>
+		<input type="text" id="event_category" name="event[category]" 
+			placeholder="Event Category" value="<%= @event.category %>">
+	</div>
+	
+	<div class="form group">
+		<label for="event_labels">Labels</label>
+		<input type="text" id="event_labels" name="event[labels]" 
+			placeholder="Event Labels" value="<%= @event.labels %>">
+	</div>
+	
+	<div class="form group">
+		<label for="event_date">Date</label>
+		<input type="text" id="event_month" name="event[month]" placeholder="Month" value="<%= @event.month %>">
+		<input type="text" id="event_day" name="event[day]" placeholder="Day" value="<%= @event.day %>">
+		<input type="text" id="event_year" name="event[year]" placeholder="Year" value="<%= @event.year %>">
+	</div>
+
+<% if form_type == "new" %>
+	<button>Create Event</button>
+<% else %>
+	<button>Update Event</button>
+<% end %>
+</form>

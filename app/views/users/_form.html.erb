@@ -1,0 +1,33 @@
+<% if form_type == "new" %>
+	<form action="<%= users_url %>" method="POST">
+<% else %>
+	<form action="<%= user_url(@user) %>" method="POST">
+		<input type="hidden" name="_method" value="PATCH">
+<% end %>
+	<%= render 'shared/form_auth' %>
+	<div class="form_group">
+		<label for="user_email">E-mail:</label>
+		<input type="text" id="user_email" name="user[email]" placeholder="E-mail" value="<%= @user.email %>">
+	</div>
+	
+	<div class="form_group">
+		<label for="user_username">Username:</label>
+		<input type="text" id="user_username" name="user[username]" placeholder="Username" value="<%= @user.username %>">
+	</div>
+	
+	<div class="form_group">
+		<label for="user_password">Password:</label>
+		<input type="password" id="user_password" name="user[password]" placeholder="Password">
+	</div>
+	
+	<div class="form_group">
+		<label for="user_password_confirmation">Password Confirmation:</label>
+		<input type="password" id="user_password_confirmation" name="user[password_confirmation]" placeholder="Re-enter Password">
+	</div>
+		
+	<% if form_type == "new" %>
+		<button>Sign Up</button>
+	<% else %>
+		<button>Update</button>
+	<% end %>
+</form>

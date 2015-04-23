@@ -1,0 +1,27 @@
+<nav>
+	<ul>
+		<% unless current_user %>
+			<li>
+				<a href="<%= new_user_url %>">Sign Up</a>
+			</li>
+			<li>
+				<a href="<%= new_session_url %>">Sign In</a>
+			</li>
+		<% end %>
+		<% if current_user %>
+			<li>
+				<a href="<%= users_url %>">All Users</a>
+			</li>
+			<li>
+				<a href="<%= edit_user_url(current_user) %>">Edit Profile</a>
+			</li>
+			<li>
+				<form action="<%= session_url %>" method="POST">
+					<input type="hidden" name="_method" value="DELETE">
+					<%= render 'shared/form_auth' %>
+					<button>Sign Out</button>
+				</form>
+			</li>
+		<% end %>
+	</ul>
+</nav>

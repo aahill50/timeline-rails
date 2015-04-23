@@ -19,17 +19,18 @@ class User < ActiveRecord::Base
 
   def reset_session_token!
     self.session_token = generate_session_token
-    
-    until User.where(session_token: self.session_token).blank? do
-      self.session_token = generate_session_token
-    end
-    
     self.save!
     self.session_token
   end
 
   def generate_session_token
-    SecureRandom::urlsafe_base64
+    token = SecureRandom::urlsafe_base64
+    
+    if User.where(session_token: token).blank?
+      token
+    else
+      generate_session_token
+    end
   end
   
   def password=(password)
